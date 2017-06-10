@@ -4,30 +4,84 @@
 	<meta charset="UTF-8">
 	<title>Train Scheduler</title>
 
-		<!-- Twitter Bootstrap -->
+	<!-- Twitter Bootstrap CDN-->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
+	<!-- Firebase Reference -->
+	<script src="https://www.gstatic.com/firebasejs/4.1.2/firebase.js"></script>
+	
 	<!-- jQuery -->
 	<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
   	crossorigin="anonymous"></script>
 
+	<!-- Moment.JS CDN -->
+	<script src="https://cdn.jsdelivr.net/momentjs/2.18.1/moment.min.js"></script>
 	<!-- JavaScript -->
 	<script type="text/javascript" src="assets/javascript/app.js" defer></script>
-	
-	<!-- Firebase JS -->
-	<script src="https://www.gstatic.com/firebasejs/4.1.2/firebase.js"></script>
-
 
 </head>
 <body>
 
 <div class="container">
 	
+	 <br>
+	<!-- Jumbotron Title -->
+	 <div class="jumbotron">
+		<h1>Main title</h1>
+		<h3>subtitle</h3>
+	 </div>
+	
+	<div class="row">
+		
+		<!-- Train Departure Board -->
+		<div class="col-lg-8">
+			<div class="panel">
+				<div class="panel-heading">
+					<h3 class="panel-title"><strong>Train Schedule</strong></h3>
+				</div>
+				<div class="panel-body">
+					<table class="table">
+						<thead>
+							<tr>
+								<th>Train Name</th>
+								<th>Destination</th>
+								<th>Frequency (mins)</th>
+								<th>Next Arrival</th>
+								<th>Minutes Away</th>
+							</tr>
+						</thead>
+						<tbody>
+						<!-- Trainline info populated through form -->
+						</tbody>
+					</table>
+				</div>
+			 </div>
+		</div>
+		
+		<!-- Add New Trainline -->
+		<div class="col-lg-4">
+			<div class="panel">
+				<div class="panel-heading">
+					<h3 class="panel-title"><strong>Add New Trainline</strong></h3>
+				</div>
+				<div class="panel-body">
+					<form>
+			
 
-
-
+					</form>
+				</div>
+			 </div>
+		</div>
+	</div>
+	
 
 </div>
 
 </body>
 </html>
+
+<!-- Pseudo  -->
+<!-- Train schedule board showing train departures and form that adds new train lines.
+	When the admin submits a new line it will appear on the train schedule board.
+	The schedule board will display the train name, destination, frequency, next arrival time, minutes away.
+	The form will take in the name of the train line, destination, frequency, and time of first departure in 2400.  -->
