@@ -46,8 +46,8 @@ $("#add-new-trainline").on("click", function(){
   database.ref().push({
     trainName: trainName,
     trainDestination: trainDestination,
-    trainArrival: trainArrival,
-    trainFrequency: trainFrequency 
+    trainFrequency: trainFrequency, 
+    trainArrival: trainArrival
   });
   
   // Clears the form
@@ -55,7 +55,7 @@ $("#add-new-trainline").on("click", function(){
   $("#train-destination").val("");
   $("#initial-arrival").val("");
   $("#frequency").val("");
-  
+
   // **********TODO: place trainCounter increment here
 });
 
@@ -67,7 +67,11 @@ database.ref().on("child_added", function(childSnapshot){
   var newTrainline = childSnapshot.val();
 
   // Creates new row in the depature table for the new trainline
-  $("#train-depature-board" > tbody).append("<tr><tb>")
+  $("#train-departure-board > tbody").append("<tr>" +
+      "<td>" + newTrainline.trainName + "</td>" +
+      "<td>" + newTrainline.trainDestination + "</td>" + 
+      "<td>" + newTrainline.trainFrequency + "</td>" +
+      "<td>" + newTrainline.trainArrival +  "</td></tr>");
 
 }, function(errorObjects) {
   console.log("Teh read failed: " + errorObject.code);
