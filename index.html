@@ -16,7 +16,9 @@
 
 	<!-- Moment.JS CDN -->
 	<script src="https://cdn.jsdelivr.net/momentjs/2.18.1/moment.min.js"></script>
+	
 	<!-- JavaScript -->
+	<script type="text/javascript" src="assets/javascript/firebase.js" defer></script>
 	<script type="text/javascript" src="assets/javascript/app.js" defer></script>
 
 </head>
@@ -33,14 +35,45 @@
 	
 	<div class="row">
 		
+		<!-- Add New Trainline -->
+		<div class="col-md-3">
+			<div class="panel">
+				<div class="panel-heading">
+					<h3 class="panel-title"><strong>Add New Trainline</strong></h3>
+				</div>
+				<div class="panel-body">
+					<!-- New Trainline Form -->
+					<form>
+						<div class="form-group">
+							<label for="train-name">Train Name</label>
+							<input class="form-control" id="train-name" type="text">
+						</div>
+						<div class="form-group">
+							<label for="train-destination">Destination</label>
+							<input class="form-control" id="train-destination" type="text">
+						</div>
+						<div class="form-group">
+							<label for="initial-arrival">Initial Arrival Time (military time)</label>
+							<input class="form-control" id="initial-arrival" type="text">
+						</div>
+						<div class="form-group">
+							<label for="frequency">Frequency (in mins)</label>
+							<input class="form-control" id="frequency" type="text">
+						</div>
+						<button class="btn btn-primary" id="add-new-trainline" type="submit">Submit</button>
+					</form>
+				</div>
+			 </div>
+		</div>
+		
 		<!-- Train Departure Board -->
-		<div class="col-lg-8">
+		<div class="col-md-9">
 			<div class="panel">
 				<div class="panel-heading">
 					<h3 class="panel-title"><strong>Train Schedule</strong></h3>
 				</div>
 				<div class="panel-body">
-					<table class="table">
+					<table class="table table-hover">
 						<thead>
 							<tr>
 								<th>Train Name</th>
@@ -52,36 +85,23 @@
 						</thead>
 						<tbody>
 						<!-- Trainline info populated through form -->
+						<!-- Template Data -->
+							<tr>
+								<td>Name</td>
+								<td>Destination</td>
+								<td>Freq</td>
+								<td>Arri</td>
+								<td>Minutes</td>
+							</tr>
 						</tbody>
 					</table>
 				</div>
 			 </div>
 		</div>
 		
-		<!-- Add New Trainline -->
-		<div class="col-lg-4">
-			<div class="panel">
-				<div class="panel-heading">
-					<h3 class="panel-title"><strong>Add New Trainline</strong></h3>
-				</div>
-				<div class="panel-body">
-					<form>
-			
-
-					</form>
-				</div>
-			 </div>
-		</div>
-	</div>
-	
+	</div>	
 
 </div>
 
 </body>
 </html>
-
-<!-- Pseudo  -->
-<!-- Train schedule board showing train departures and form that adds new train lines.
-	When the admin submits a new line it will appear on the train schedule board.
-	The schedule board will display the train name, destination, frequency, next arrival time, minutes away.
-	The form will take in the name of the train line, destination, frequency, and time of first departure in 2400.  -->
