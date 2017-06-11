@@ -27,8 +27,6 @@ var trainFrequency = "";
 // -----FUNCTIONS------
 
 // Pushes form values to firebase
-// ?????DOES IT ALSO NEED TO ADD NEW TABLE ROW
-// ?????OR CAN THAT BE A SEPARATE FUNCTION??
 $("#add-new-trainline").on("click", function(){
   // Prevents form from refreshing/submitting
   event.preventDefault();
@@ -40,7 +38,9 @@ $("#add-new-trainline").on("click", function(){
   trainFrequency = $("#frequency").val().trim();
 
   console.log(trainName);
-  console.log(trainDestination, trainArrival, trainFrequency);
+  console.log(trainDestination);
+  console.log(trainArrival);
+  console.log(trainFrequency);
 
   // Push values to firebase
   database.ref().push({
@@ -50,8 +50,25 @@ $("#add-new-trainline").on("click", function(){
     trainFrequency: trainFrequency 
   });
   
+  // Clears the form
+  $("#train-name").val("");
+  $("#train-destination").val("");
+  $("#initial-arrival").val("");
+  $("#frequency").val("");
+  
   // **********TODO: place trainCounter increment here
-
 });
 
 
+// When a child is added to firebase, update the train departure board
+database.ref().on("child_added", function(childSnapshot){
+
+  // Gets the newly added child (trainline) value
+  var newTrainline = childSnapshot.val();
+
+  // Creates new row in the depature table for the new trainline
+  $("#train-depature-board" > tbody).append("<tr><tb>")
+
+}, function(errorObjects) {
+  console.log("Teh read failed: " + errorObject.code);
+});
