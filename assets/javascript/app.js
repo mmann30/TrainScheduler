@@ -2,9 +2,10 @@
 
 // Will there be FrontEnd?
 
-
-// limit number of visible trains?
-// have option to delete trains?
+// Play music when Crazy Train is clicked
+// $("tr:contains('Crazy Train')").on("click", function(){
+	
+// });
 
 
 // rss feed of train schedule
