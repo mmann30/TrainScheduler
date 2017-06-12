@@ -57,21 +57,49 @@ $("#add-new-trainline").on("click", function(){
   $("#frequency").val("");
 
   // **********TODO: place trainCounter increment here
+  //  ************possibly use limitToLast(10) method
 });
 
 
 // When a child is added to firebase, update the train departure board
 database.ref().on("child_added", function(childSnapshot){
 
-  // Gets the newly added child (trainline) value
+  // Gets the newly added child (trainline) values
   var newTrainline = childSnapshot.val();
+  var newTrainArrival = childSnapshot.val().trainArrival;
+  
+  // Time until next train arrives calculations
+  var currentTime = moment();
+  console.log(currentTime);
+
+  //  Subtracts
+  var convertedArrival = moment(newTrainArrival, "hh:mm").subtract(1, "years");
+  console.log("trainArrival "+ newTrainArrival);
+  console.log("convertedArrival: "+convertedArrival);
+
+  // Difference between current time and initial arrival
+  var diffTime = moment().diff(moment(convertedArrival), "minutes");
+  console.log("diffTime: "+ diffTime);
+
+  // Modulo calculation to determine how much time remains 
+  // until the next train arrives.
+  var tRemainder = diffTime % newTrainline.trainFrequency;
+  console.log("Remainder: "+ tRemainder);
+
+  var tMinutesToArrival = newTrainline.trainFrequency - tRemainder;
+  console.log("tMinutesToArrival: "+ tMinutesToArrival);
+
+  var tNextArrival = moment().add(tMinutesToArrival, "minutes").format("hh:mm");
+  console.log("NextArrival "+ tNextArrival);
+  // ----- Ends time until next train arrives calculations 
 
   // Creates new row in the depature table for the new trainline
   $("#train-departure-board > tbody").append("<tr>" +
       "<td>" + newTrainline.trainName + "</td>" +
       "<td>" + newTrainline.trainDestination + "</td>" + 
       "<td>" + newTrainline.trainFrequency + "</td>" +
-      "<td>" + newTrainline.trainArrival +  "</td></tr>");
+      "<td>" + tNextArrival + "</td>" +
+      "<td>" + tMinutesToArrival + "</td></tr>");
 
 }, function(errorObjects) {
   console.log("Teh read failed: " + errorObject.code);
