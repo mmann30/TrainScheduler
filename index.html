@@ -7,6 +7,8 @@
 	<!-- Twitter Bootstrap CDN-->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
+	<!-- CSS -->
+	<link rel="stylesheet" type="text/css" href="assets/css/styles.css">
 	<!-- Firebase Reference -->
 	<script src="https://www.gstatic.com/firebasejs/4.1.2/firebase.js"></script>
 	
@@ -29,19 +31,19 @@
 	 <br>
 	<!-- Jumbotron Title -->
 	 <div class="jumbotron">
-		<h1>Main title</h1>
-		<h3>subtitle</h3>
+		<h1 class="text-center">Octo-Railway</h1>
+		<h3 class="text-center"><strong>"20,000 leagues better than the competition"</strong></h3>
 	 </div>
 
 	<div class="row">
 		
 		<!-- Add New Trainline Form -->
 		<div class="col-md-3">
-			<div class="panel">
+			<div class="panel panel-default">
 				<div class="panel-heading">
 					<h3 class="panel-title"><strong>Add New Trainline</strong></h3>
 				</div>
-				<div class="panel-body">
+				<div class="panel-body" id="new-line">
 					<!-- New Trainline Form -->
 					<form>
 						<div class="form-group">
@@ -68,11 +70,11 @@
 		
 		<!-- Train Departure Board -->
 		<div class="col-md-9">
-			<div class="panel">
+			<div class="panel panel-default">
 				<div class="panel-heading">
 					<h3 class="panel-title"><strong>Train Schedule</strong></h3>
 				</div>
-				<div class="panel-body table-responsive">
+				<div class="panel-body table-responsive" id="train-departure-board">
 					<table class="table table-hover" id="train-departure-board">
 						<thead>
 							<tr>

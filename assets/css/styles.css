@@ -1,0 +1,25 @@
+/* Train Scheduler CSS*/
+
+html body {
+	background-color: #eab25b;
+	background-image: url(../images/octo-map.jpg);
+	background-size: cover;
+}
+
+.jumbotron {
+	background-color: rgba(116,172,199, 0.3);
+}
+
+#new-line {
+	background-image: url(../images/blue-octo.jpg);
+	background-size: 100% 100%;
+}
+
+.panel {
+	border-color: #333;
+}
+
+.panel-default > .panel-heading {
+	background-color: rgb(116,172,199);
+	background-image: url(../images/BlueCapture.jpg);
+}
